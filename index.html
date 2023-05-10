@@ -7,18 +7,9 @@
 	<script src="node_modules\artyom.js\build\artyom.window.min.js"></script>
 </head>
 <body>
-	<script>
-		window.onload = function() {
-  artyom.initialize({
-    lang:"es-ES",
-
-    continuous:true, // activa el reconocimiento de voz continuo
-    listen:true // activa la escucha inmediatamente después de la inicialización
 	
-  });
-  
-};
-	</script>
+<input type="button" onclick="startArtyom();" value="start"/>		
+	
 	<canvas id="canvas" width="1000" height="600"></canvas>
 	
 	<script src="script.js"></script>

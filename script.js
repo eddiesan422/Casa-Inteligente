@@ -99,9 +99,8 @@ var comandos = [
         var vCocina= ctx.drawImage(img4,205, 500, 30, 30);
       }
       img4.src = 'img/ventanacerrada.png';
-     
+      
     }
-    
   },
   {
     indexes: ["abrir ventana habitación uno"],
@@ -166,11 +165,16 @@ var comandos = [
 artyom.addCommands(comandos);
 
 // Le decimos a Artyom que inicie el reconocimiento de voz
-artyom.initialize({
-  lang: "es-ES",
-  continuous: true,
-  debug: true
-});
+function startArtyom(){
+  artyom.initialize({
+    lang: "es-ES",
+    continuous: true,
+    debug: true,
+    listen: true,
+    obeyKeyword: false
+  });
+}
+
 // Base principal
 ctx.fillStyle = "#c9c9c9";
 ctx.fillRect(20, 20, 850, 560);
