@@ -24,18 +24,39 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 });
+const consejosSeguridad = [
+  "No compartas tus contraseñas con nadie",
+  "Mantén tus dispositivos actualizados con las últimas versiones de software y antivirus",
+  "No hagas clic en enlaces sospechosos o descargues archivos de fuentes desconocidas",
+  "Utiliza contraseñas seguras que contengan letras, números y símbolos",
+  "No reveles información personal en línea, como tu dirección o número de teléfono",
+  "Usa una red privada virtual (VPN) cuando te conectes a redes públicas",
+  "No conectes dispositivos desconocidos a tu computadora o red",
+  "Haz copias de seguridad de tus datos regularmente",
+  "Activa la autenticación de dos factores en todas las cuentas que lo permitan",
+  "Cierra sesión en todas tus cuentas y dispositivos cuando no los estés utilizando",
+];
 var comandos = [
   {
-    indexes: ["dejar de escuchar"],
+    indexes: ["dejar de escuchar","deja de escuchar","adios","chao","hasta luego","hasta pronto","hasta la prox"],
     action: function() {
-      artyom.say("Deteniendo escucha");
+      artyom.say("Deteniendo escucha, hasta luego");
       stopListening();
       
     }
     
   },
   {
-    indexes: ["abrir puerta principal"],
+    indexes: ["consejos de seguridad", "consejo de seguridad","dame un consejo de seguridad"],
+    action: function() {
+      const consejoAleatorio = consejosSeguridad[Math.floor(Math.random() * consejosSeguridad.length)];
+      artyom.say(consejoAleatorio);;
+      
+    }
+    
+  },
+  {
+    indexes: ["abrir puerta principal", "abrir la puerta principal"],
     action: function() {
       const principalDoor = { x: 845, y: 270, width: 10, height: 40 };
       ctx.fillStyle = "#0d89b9";
@@ -45,7 +66,7 @@ var comandos = [
     
   },
   {
-    indexes: ["cerrar puerta principal"],
+    indexes: ["cerrar puerta principal", "cerrar la puerta principal"],
     action: function() {
       const principalDoor = { x: 845, y: 270, width: 10, height: 40 };
       ctx.fillStyle = "#000000";
@@ -55,7 +76,7 @@ var comandos = [
     
   },
   {
-    indexes: ["apagar todas las luces"],
+    indexes: ["apagar todas las luces", "apagar luces"],
     action: function() {
       offBaño1();
       offBaño2();
@@ -88,7 +109,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["prender todas las luces"],
+    indexes: ["prender todas las luces", "prender luces"],
     action: function() {
       onBaño1();
       onBaño2();
@@ -119,7 +140,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["apagar luz cocina"],
+    indexes: ["apagar luz cocina", "apagar la luz de la cocina"],
     action: function() {
       offCocina();
       var img = new Image();
@@ -131,7 +152,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["apagar luz habitación uno"],
+    indexes: ["apagar luz habitación uno", "apagar la luz de la habitación uno"],
      
     action: function() {
      offHabitacion1();
@@ -144,7 +165,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["apagar luz habitación dos"],
+    indexes: ["apagar luz habitación dos", "apagar la luz de la habitación dos"],
     action: function() {
       offHabitacion2();
       var img = new Image();
@@ -156,7 +177,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["apagar luz habitación tres"],
+    indexes: ["apagar luz habitación tres", "apagar la luz de la habitación tres"],
     action: function() {
       offHabitacion3();
       var img = new Image();
@@ -168,7 +189,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["apagar luz patio"],
+    indexes: ["apagar luz patio", "apagar la luz del patio"],
     action: function() {
       offPatio();
       var img = new Image();
@@ -180,7 +201,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["apagar luz baño uno"],
+    indexes: ["apagar luz baño uno", "apagar la luz del baño uno"],
     action: function() {
       offBaño1();
       var img = new Image();
@@ -192,7 +213,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["apagar luz baño dos"],
+    indexes: ["apagar luz baño dos", "apagar la luz del baño dos"],
     action: function() {
       offBaño2();
       var img = new Image();
@@ -204,7 +225,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["prender luz baño uno"],
+    indexes: ["prender luz baño uno", "prender la luz del baño uno"],
     action: function() {
       onBaño1();
       var img = new Image();
@@ -217,7 +238,7 @@ var comandos = [
     
   },
   {
-    indexes: ["prender luz baño dos"],
+    indexes: ["prender luz baño dos", "prender la luz del baño dos"],
     action: function() {
       onBaño2();
       var img = new Image();
@@ -230,7 +251,7 @@ var comandos = [
     
   },
   {
-    indexes: ["prender luz cocina"],
+    indexes: ["prender luz cocina", "prender la luz de la cocina"],
     action: function() {
       onCocina();
       var img = new Image();
@@ -243,7 +264,7 @@ var comandos = [
     
   },
   {
-    indexes: ["prender luz habitación uno"],
+    indexes: ["prender luz habitación uno", "prender la luz de la habitación uno"],
     action: function() {
       onHabitacion1();
       var img = new Image();
@@ -255,7 +276,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["prender luz habitación dos"],
+    indexes: ["prender luz habitación dos", "prender la luz de la habitación dos"],
     action: function() {
       onHabitacion2();
       var img = new Image();
@@ -267,7 +288,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["prender luz habitación tres"],
+    indexes: ["prender luz habitación tres", "prender la luz de la habitación tres"],
     action: function() {
       onHabitacion3();
       var img = new Image();
@@ -279,7 +300,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["prender luz patio"],
+    indexes: ["prender luz patio", "prender la luz del patio"],
     action: function() {
       onPatio();
       var img = new Image();
@@ -291,7 +312,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["cerrar todas las ventanas"],
+    indexes: ["cerrar todas las ventanas", "cerrar ventanas"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -310,7 +331,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir todas las ventanas"],
+    indexes: ["abrir todas las ventanas", "abrir ventanas"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -329,7 +350,7 @@ var comandos = [
     
   },
   {
-    indexes: ["cerrar ventana habitación uno"],
+    indexes: ["cerrar ventana habitación uno", "cerrar la ventana de la habitación uno"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -342,7 +363,7 @@ var comandos = [
     
   },
   {
-    indexes: ["cerrar ventana habitación dos"],
+    indexes: ["cerrar ventana habitación dos", "cerrar la ventana de la habitación dos"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -355,7 +376,7 @@ var comandos = [
     
   },
   {
-    indexes: ["cerrar ventana habitación tres"],
+    indexes: ["cerrar ventana habitación tres", "cerrar la ventana de la habitación tres"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -369,7 +390,7 @@ var comandos = [
     
   },
   {
-    indexes: ["cerrar ventana cocina"],
+    indexes: ["cerrar ventana cocina", "cerrar la ventana de la cocina"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -381,7 +402,7 @@ var comandos = [
     }
   },
   {
-    indexes: ["abrir ventana habitación uno"],
+    indexes: ["abrir ventana habitación uno","abrir la ventana de la habitación uno"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -394,7 +415,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir ventana habitación dos"],
+    indexes: ["abrir ventana habitación dos","abrir la ventana de la habitación dos"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -407,7 +428,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir ventana habitación tres"],
+    indexes: ["abrir ventana habitación tres","abrir la ventana de la habitación tres"],
     action: function() {
       var img4 = new Image();
       img4.onload = function() {
@@ -421,7 +442,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir ventana cocina"],
+    indexes: ["abrir ventana cocina","abrir la ventana de la cocina"],
     action: function() {
       var img4 = new Image();
     img4.onload = function() {
@@ -435,7 +456,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir puerta habitación tres"],
+    indexes: ["abrir puerta habitación tres", "abrir puerta habitación 3"],
     action: function() {
       const kitchenDoor = { x: 700, y: 315, width: 20, height: 10 };
       ctx.fillStyle = "#0d89b9";
@@ -445,7 +466,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir puerta cocina"],
+    indexes: ["abrir puerta cocina", "abrir puerta de la cocina"],
     action: function() {
       const bedroom1Door = { x: 215, y: 450, width: 10, height: 20 };
       ctx.fillStyle = "#0d89b9";
@@ -455,7 +476,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir puerta habitación uno"],
+    indexes: ["abrir puerta habitación uno", "abrir puerta habitación 1"],
     action: function() {
       const bedroom2Door = { x: 370, y: 255, width: 20, height: 10 };
       ctx.fillStyle = "#0d89b9";
@@ -465,7 +486,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir puerta habitación dos"],
+    indexes: ["abrir puerta habitación dos", "abrir puerta habitación 2"],
     action: function() {
       const bedroom3Door = { x: 700, y: 255, width: 20, height: 10};
       ctx.fillStyle = "#0d89b9";
@@ -475,7 +496,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir puerta baño uno"],
+    indexes: ["abrir puerta baño uno", "abrir puerta del baño uno"],
     action: function() {
       const bathroom1Door = { x: 400, y: 335, width: 20, height: 10 };
       ctx.fillStyle = "#0d89b9";
@@ -485,7 +506,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir puerta baño dos"],
+    indexes: ["abrir puerta baño dos", "abrir puerta del baño dos"],
     action: function() {
       const bathroom3Door = { x: 515, y: 480, width: 10, height: 20 };
       ctx.fillStyle = "#0d89b9";
@@ -495,7 +516,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir puerta patio"],
+    indexes: ["abrir puerta patio", "abrir puerta del patio"],
     action: function() {
       const mainDoor = { x: 215, y: 300, width: 10, height: 20 };
       ctx.fillStyle = "#0d89b9";
@@ -505,7 +526,7 @@ var comandos = [
     
   },
   {
-    indexes: ["abrir todas las puertas"],
+    indexes: ["abrir todas las puertas", "abrir todas las puertas de la casa"],
     action: function() {
       // Coordenadas y tamaño de cada puerta
 const mainDoor = { x: 215, y: 300, width: 10, height: 20 };
@@ -531,7 +552,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrar todas las puertas"],
+    indexes: ["cerrar todas las puertas", "cerrar todas las puertas de la casa"],
     action: function() {
       // Coordenadas y tamaño de cada puerta
 const mainDoor = { x: 215, y: 300, width: 10, height: 20 };
@@ -557,7 +578,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrar puerta habitación tres"],
+    indexes: ["cerrar puerta habitación tres", "cerrar puerta de la habitación tres"],
     action: function() {
       const kitchenDoor = { x: 700, y: 315, width: 20, height: 10 };
       ctx.fillStyle = "#bdc014";
@@ -567,7 +588,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrar puerta cocina"],
+    indexes: ["cerrar puerta cocina", "cerrar puerta de la cocina"],
     action: function() {
       const bedroom1Door = { x: 215, y: 450, width: 10, height: 20 };
       ctx.fillStyle = "#bdc014";
@@ -577,7 +598,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrar puerta habitación uno"],
+    indexes: ["cerrar puerta habitación uno", "cerrar puerta de la habitación uno"],
     action: function() {
       const bedroom2Door = { x: 370, y: 255, width: 20, height: 10 };
       ctx.fillStyle = "#bdc014";
@@ -587,7 +608,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrar puerta habitación dos"],
+    indexes: ["cerrar puerta habitación dos", "cerrar puerta de la habitación dos"],
     action: function() {
       const bedroom3Door = { x: 700, y: 255, width: 20, height: 10};
       ctx.fillStyle = "#bdc014";
@@ -597,7 +618,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrando puerta baño uno"],
+    indexes: ["cerrando puerta baño uno", "cerrar puerta del baño uno"],
     action: function() {
       const bathroom1Door = { x: 400, y: 335, width: 20, height: 10 };
       ctx.fillStyle = "#bdc014";
@@ -607,7 +628,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrando puerta baño dos"],
+    indexes: ["cerrando puerta baño dos", "cerrar puerta del baño dos"],
     action: function() {
       const bathroom3Door = { x: 515, y: 480, width: 10, height: 20 };
       ctx.fillStyle = "#bdc014";
@@ -617,7 +638,7 @@ ctx.fillRect(principalDoor.x, principalDoor.y, principalDoor.width, principalDoo
     
   },
   {
-    indexes: ["cerrar puerta patio"],
+    indexes: ["cerrar puerta patio", "cerrar puerta del patio"],
     action: function() {
       const mainDoor = { x: 215, y: 300, width: 10, height: 20 };
       ctx.fillStyle = "#bdc014";
@@ -641,7 +662,9 @@ function startArtyom(){
     listen: true,
     obeyKeyword: false
   });
-  artyom.say("Hola"+ nameVariable +"en que puedo ayudarte");
+  artyom.say("Hola"+ nameVariable +"bienvenido a la casa inteligente");
+  artyom.say("acabo de habilitar los comandos de voz");
+  artyom.say("recuerda que si necesitas consejos de seguridad puedes decir, consejos de seguridad");
 }
 function stopListening() {
   artyom.fatality();
