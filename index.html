@@ -7,11 +7,26 @@
 	<script src="node_modules\artyom.js\build\artyom.window.min.js"></script>
 </head>
 <body>
-	
-<input type="button" onclick="startArtyom();" value="start"/>		
-	
 	<canvas id="canvas" width="1000" height="600"></canvas>
-	
 	<script src="script.js"></script>
+	<h1>Bienvenidos a la casa inteligente</h1>
+	<button id="btnAbrirPaginaExterna">Cick aqui para ver la lista de comandos</button>
+	<p></p>
+	<form id="myForm">
+		<label for="nameInput">Nombre:</label>
+		<input type="text" id="nameInput" name="nameInput">
+		<button type="submit">Enviar</button>
+	  </form>
+	  <script>
+		// Obtener una referencia al botón
+var btnAbrirPaginaExterna = document.getElementById("btnAbrirPaginaExterna");
+
+// Agregar un evento de clic al botón
+btnAbrirPaginaExterna.addEventListener("click", function(){
+  // Abrir la página externa en una nueva ventana
+  window.open("comandos.html", "_blank");
+});
+	  </script>
+	<p><input type="button" onclick="startArtyom();" value="start"/></p>
 </body>
 </html>
